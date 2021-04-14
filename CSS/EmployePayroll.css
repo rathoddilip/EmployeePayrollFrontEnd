@@ -1,0 +1,154 @@
+img
+{
+    width:2em;
+    padding-left: 1px;
+    padding-inline-end: 10px;
+}   
+.header
+{
+    
+    padding: 15px 0;
+}
+.header-content
+{
+    display: flex;
+    justify-content: center; 
+    
+}
+.logo-content
+{
+    
+     align-items: center;
+     display: flex;
+     width:  80%;
+}
+.emp-text
+{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0px;
+    color: #82a70c;
+    text-transform: uppercase;
+    
+}
+.emp-payroll
+{
+    color:grey;
+}
+.form-content
+{
+      
+    
+    width: 100%;
+    margin: 0px 0px 15px 0px;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 12px 20px; 
+
+
+
+}
+.form
+{
+    max-width: 700px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #faf8f8;
+    padding: 20px 25px;
+    
+}
+.form-head
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0px;
+    color: black;
+    text-transform: capitalize;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.row-content::after
+{
+    content: "";
+    display: table;
+    clear: both;
+} 
+.label-text
+{
+    
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+      
+}
+.input-content
+{
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 4px;
+   
+}
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+.profile-radio-context
+{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    
+    
+}
+
+input[type=text], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  .select-context
+  {
+    width: 800px;
+    height: 40px;
+    
+  }
+select
+{
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    line-height: 50px;
+    
+    
+} 
+
+.button-content
+{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+/* table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color:rgb(126, 103, 150);
+  } */
+   
