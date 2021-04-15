@@ -5,7 +5,7 @@ $(document).ready(function () {
     $(document).on('click','#delEmp',function(){   
 
       $.ajax({
-        url: 'https://localhost:44302/api/Employee/Delete/'+this.value,
+        url: 'https://localhost:44302/api/Employee/'+this.value,
         type: "DELETE",
         success: function (data) {
           
@@ -21,23 +21,24 @@ $(document).ready(function () {
     
     });
 //edit employee data
-    $(document).on('click','#editEmp',function(){   
-      
-      var result=localStorage.getItem('editEmp');
-      updateEmp(result);
-    //   $.ajax({  
-    //     url: "https://localhost:44302/api/Employee",  
-    //     type: "GET",  
-    //     success: function (data) {  
-    //       console.log(data['data']);
-    //       updateEmp(data['data']);
+    $(document).on('click','#editEmp',function(){  
   
-    //     },
-    //     error: function (error) {
-    //         console.log(error);
+      $.ajax({  
+        url: "https://localhost:44302/api/Employee/"+this.value,  
+        type: "GET",  
+        success: function (data) { 
+          
+          console.log("updateData"+data['data']);
+          var dataJsonString=JSON.stringify(data['data']);
+          console.log("LocalStorageData",dataJsonString);
+          localStorage.setItem("templocalStorage",dataJsonString);   
+          updateEmp(data['data']);
+        },
+        error: function (error) {
+            console.log(error);
        
-    //     }
-    //  });
+        }
+     });
     
     });
     
@@ -49,11 +50,7 @@ function loadData() {
         contentType: "application/json;charset=utf-8",  
         dataType: "json",  
         success: function (data) {  
-            
-          var updateResult=JSON.stringify(data['data']);
-          console.log("LocalStorageData",updateResult);
-          localStorage.setItem("editEmp",updateResult);
-            console.log(data['data']);
+          console.log(""+data['data']);        
             setEmpoyees(data['data']);
         },  
         error: function (errormessage) {  

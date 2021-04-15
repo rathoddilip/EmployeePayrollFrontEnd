@@ -1,18 +1,23 @@
 $(document).ready(function () { 
-var result= localStorage.getItem("#editEmp");
-ressultJson=JSON.parse(result);
-var departments=[];
-$('#fullname').val(ressultJson.name);
-$("input[name='profile'][value"+ressultJson.profile + "]").prop('checked',true);
-$("input[name='gender'][value"+ressultJson.gender + "]").prop('checked',true);
-$("input[name='profile'][value"+ressultJson.profile + "]").prop('checked',true);
-$("input[name='department'][value"+ressultJson.department1 + "]").prop('checked',true);
-$('#salary').val(ressultJson.salary);
-var day=new Date(ressultJson.startDate);
+var result= localStorage.getItem('templocalStorage');
+resultJson=JSON.parse(result);
+console.log("jsondata"+resultJson);
+
+$('#name').val(resultJson.name);
+$('input[name="gender'+resultJson.gender+'"]').checked.val();
+$('select[name="salaryname' + resultJson.salary + '"] option:selected').val();
+
+
+$("input[name='gender'][value"+resultJson.gender + "]").prop('checked',true);
+$("input[name='department'][value"+resultJson.department1 + "]").prop('checked',true);
+$("input[name='department'][value"+resultJson.department2 + "]").prop('checked',true);
+$("input[name='department'][value"+resultJson.department3 + "]").prop('checked',true);
+$('#salary').val(resultJson.salary);
+var day=new Date(resultJson.startDate);
 $('#day').val(day.getDay());
 $('#month').val(day.getMonth());
 $('#year').val(day.getFullYear());
-$('#notes').val(ressultJson.notes);
+$('#notes').val(resultJson.notes);
 
 });
 
@@ -32,8 +37,8 @@ function update(event)
     console.log(date);
     var salary = document.getElementById("salary").value;
     var sal = parseFloat(salary).toFixed(3);
-    var startDate= new  Date(date);
-    console.log(startDate);
+    var startDate1= new  Date(date);
+    console.log(startDate1);
     var profile=$("input[name='profile']:checked").val();
     //  var Department1=$("input[name='department']:checked").val();
     // var Department2=$("input[name='department']:checked").val();
@@ -43,20 +48,20 @@ function update(event)
 
     });
 
-    var result=localStorage.getItem('editEmp');
-    result=JSON.parse(result);
+    var result=localStorage.getItem('templocalStorage');
+     result=JSON.parse(result);
 
     let reqData = {
-        "name": document.getElementById("fullname").value,
+        "name": document.getElementById("name").value,
         "gender":document.querySelector('input[name="gender"]:checked').value,
         "salary":parseFloat(sal),
-        "startDate":startDate,
+        "startDate":startDate1,
         "notes":document.getElementById("notes").value,
         "profileImage":profile  ,  
         "department1":departments[0],
         "department2":departments[1],
         "department3":departments[2],
-        "id":result.id    
+        "id":resultJson.id    
         
 }
 let rdata = JSON.stringify(reqData);
@@ -66,7 +71,7 @@ var x = document.getElementById("snackbar");
   x.className = "show";
     $.ajax({
         
-        url: "https://localhost:44302/api/Employee/Update/"+this.value,  
+        url: "https://localhost:44302/api/Employee/"+resultJson.id ,  
         type: "PUT",  
         contentType: "application/json;",  
         dataType: "json", 
@@ -77,6 +82,7 @@ var x = document.getElementById("snackbar");
             x.innerHTML = "update successfull";
             x.style.color = "green";           
             //setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+            localStorage.clear();
         },
         error: function (error) {
             console.log(error);

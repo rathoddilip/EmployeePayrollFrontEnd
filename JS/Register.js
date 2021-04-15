@@ -9,21 +9,18 @@ function register(event)
     console.log(date);
     var salary = document.getElementById("salary").value;
     var sal = parseFloat(salary).toFixed(3);
-    var startDate= new  Date(date);
-    console.log(startDate);
+    var startDate1= new  Date(date);
+    console.log(startDate1);
     var profile=$("input[name='profile']:checked").val();
-    //  var Department1=$("input[name='department']:checked").val();
-    // var Department2=$("input[name='department']:checked").val();
-    // var Department3=$("input[name='department']:checked").val();
         $.each($("input[name='department']:checked"), function(){
       departments.push($(this).val());
-
+      
     });
     let reqData = {
         "name": document.getElementById("name").value,
         "gender":document.querySelector('input[name="gender"]:checked').value,
         "salary":parseFloat(sal),
-        "startDate":startDate,
+        "startDate":startDate1,
         "notes":document.getElementById("notes").value,
         "profileImage":profile  ,  
         "department1":departments[0],
@@ -38,7 +35,7 @@ var x = document.getElementById("snackbar");
   x.className = "show";
     $.ajax({
         
-        url: "https://localhost:44302/api/Employee/Register",  
+        url: "https://localhost:44302/api/Employee",  
         type: "POST",  
         contentType: "application/json;",  
         dataType: "json", 
