@@ -4,14 +4,14 @@ resultJson=JSON.parse(result);
 console.log("jsondata"+resultJson);
 
 $('#name').val(resultJson.name);
-$('input[name="gender'+resultJson.gender+'"]').checked.val();
-$('select[name="salaryname' + resultJson.salary + '"] option:selected').val();
+$("input[type='radio'][name='gender']:checked").val();
+$('#checkbox').val(resultJson.department1).is(':checked');
+$('#checkbox').val(resultJson.department1).is(':checked');
+$('#checkbox').val(resultJson.department1).is(':checked');
 
-
-$("input[name='gender'][value"+resultJson.gender + "]").prop('checked',true);
-$("input[name='department'][value"+resultJson.department1 + "]").prop('checked',true);
-$("input[name='department'][value"+resultJson.department2 + "]").prop('checked',true);
-$("input[name='department'][value"+resultJson.department3 + "]").prop('checked',true);
+// $("input[name='department']"+resultJson.department1 + "]").prop('checked',true);
+// $("input[name='department'][value"+resultJson.department2 + "]").prop('checked',true);
+// $("input[name='department'][value"+resultJson.department3 + "]").prop('checked',true);
 $('#salary').val(resultJson.salary);
 var day=new Date(resultJson.startDate);
 $('#day').val(day.getDay());

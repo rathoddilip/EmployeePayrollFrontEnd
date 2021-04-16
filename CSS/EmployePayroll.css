@@ -140,15 +140,20 @@ select
     justify-content: space-between;
     margin-top: 20px;
 }
-/* table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+@media only screen and (max-width:800px) {
+    
+    .form-content, .row-content{
+      width: 80%;
+      padding: 0;
+    }
+    .form {
+      width: 100%;
+    }
   }
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    background-color:rgb(126, 103, 150);
-  } */
+  @media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    .form-content, .form, .right ,.row-content {
+      width: 100%;
+    }
+  }
    
